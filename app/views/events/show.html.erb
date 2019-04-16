@@ -1,7 +1,13 @@
 <div class="events show">
-  <h2>Show Pages</h2>
+  <h2>Show Event</h2>
 
   <table summary="Event view">
+    <tr>
+      <td><% if @event.cover_photo.attached? %>
+        <image src="<%=(url_for(@event.cover_photo))%>">
+          <% end %>
+      </td>
+    </tr>
     <tr>
       <th>Name</th>
       <td><%= @event.name %></td>

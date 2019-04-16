@@ -16,7 +16,7 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="dropdown">
+  <div class="field">
     <%= form.label :date_of_event %>
     <%= form.datetime_select(:date_of_event) %>
   </div>
@@ -33,12 +33,12 @@
 
   <div class="field">
     <%= form.label :rsvp_cut_off %>
-    <%= form.text_field :rsvp_cut_off, "data-provide" => 'datepicker' %>
+    <%= form.datetime_select(:rsvp_cut_off, :include_seconds => false ) %>
   </div>
 
   <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_field :picture %>
+    <%= form.label "Cover Photo" %>
+    <%= form.file_field :cover_photo %>
   </div>
 
   <div class="actions">
