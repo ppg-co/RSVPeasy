@@ -3,6 +3,7 @@
 
   <table summary="Event view">
     <tr>
+      <th>Cover</th>
       <td><% if @event.cover_photo.attached? %>
         <image src="<%=(url_for(@event.cover_photo))%>">
           <% end %>
