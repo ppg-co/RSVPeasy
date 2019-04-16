@@ -1,17 +1,40 @@
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+<div class="events show">
+  <h2>Show Pages</h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <table summary="Event view">
+    <tr>
+      <th>Name</th>
+      <td><%= @event.name %></td>
+    </tr>
+    <tr>
+      <th>Date of Event</th>
+      <td><%= @event.date_of_event %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @event.description %></td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td><%= @event.location %></td>
+    </tr>
+    <tr>
+      <th>Response Cut-Off</th>
+      <td><%= @event.rsvp_cut_off %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @event.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @event.updated_at %></td>
+    </tr>
+  </table>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @event.picture %>
-</p>
+</div>
+
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -16,9 +16,24 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="dropdown">
+    <%= form.label :date_of_event %>
+    <%= form.datetime_select(:date_of_event) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location  %>
+    <%= form.text_field :location %>
+  </div>
+
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rsvp_cut_off %>
+    <%= form.text_field :rsvp_cut_off, "data-provide" => 'datepicker' %>
   </div>
 
   <div class="field">
