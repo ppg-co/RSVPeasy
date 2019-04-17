@@ -5,7 +5,7 @@
     <tr>
       <th>Cover</th>
       <td><% if @event.cover_photo.attached? %>
-        <image src="<%=(url_for(@event.cover_photo))%>">
+        <image src="<%=(url_for(@event.cover_photo, :width => 400, :height => 200))%>">
           <% end %>
       </td>
     </tr>
