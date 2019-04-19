@@ -5,7 +5,7 @@ function initMap (lat, lng){
 
   var mapOptions = {
     center: myCoords,
-    zoom:14
+    zoom: 14
   };
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -57,7 +57,7 @@ function initMap2() {
     document.getElementById('location_latitude').onchange = refreshMarker;
     document.getElementById('location_longitude').onchange = refreshMarker;
 
-    marker.addListner('drag', function(){
+    marker.addListener('drag', function(){
       latlng = marker.getPosition();
       newlat = (Math.round(latlng.lat()*1000000))/1000000;
       newlng = (Math.round(latlng.lng()*1000000))/1000000;
@@ -65,7 +65,7 @@ function initMap2() {
       document.getElementById('location_longitude').value = newlng;
     });
 
-    marker.addListner('dragged', function(){
+    marker.addListener('dragged', function(){
       map.panTo(marker.getPosition())
     })
 }
