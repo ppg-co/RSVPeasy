@@ -9,3 +9,7 @@
 Location.create! ([
   {"name": "Buckingham Palace", "latitude": "51.501564", "longitude": "-0.141944"}
   ])
+
+Event.create([
+  {"name":"Test","description":"location test", "address":"Buckingham Palace", "latitude":"51.501564","longitude":"-0.141944"}
+  ])

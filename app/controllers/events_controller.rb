@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    
+
 
     respond_to do |format|
       if @event.save
@@ -71,6 +71,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name,:date_of_event,:location, :description,:rsvp_cut_off, :cover_photo)
+      params.require(:event).permit(:name,:date_of_event,:location,:address, :latitude, :longitude, :description,:rsvp_cut_off, :cover_photo)
     end
 end

@@ -1,3 +1,10 @@
+<% provide :head_tags do %>
+<meta name='turbolinks-visit-control' content="reload">
+<script>
+  document.addEventListener("DOMContentLoaded", initMap2)
+</script>
+<% end %>
+
 <%= form_with(model: event, local: true) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -23,7 +30,7 @@
 
   <div class="field">
     <%= form.label :location  %>
-    <%= link_to "Locations", new_location_path, class: 'button alt' %>
+    <%= form.text_field :location %>
   </div>
 
   <div class="field">

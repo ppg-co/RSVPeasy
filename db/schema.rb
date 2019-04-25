@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_113359) do
+ActiveRecord::Schema.define(version: 2019_04_23_102610) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2019_04_18_113359) do
     t.datetime "date_of_event"
     t.string "location"
     t.datetime "rsvp_cut_off"
+    t.string "address"
+    t.decimal "latitude"
+    t.decimal "longitude"
   end
 
   create_table "events_guests", id: false, force: :cascade do |t|
