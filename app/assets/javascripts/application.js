@@ -17,4 +17,7 @@
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 //= require jquery-ui/widgets/datepicker
+//= require reports_kit/application
 //= require_tree .
+//= require Chart.bundle
+//= require chartkick
