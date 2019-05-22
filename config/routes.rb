@@ -1,3 +1,4 @@
+Rails.application.routes.default_url_options[:host] = "XXX"
 Rails.application.routes.draw do
   resources :locations
 
