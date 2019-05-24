@@ -13,3 +13,15 @@ Location.create! ([
 Event.create([
   {"name":"Test","description":"location test", "address":"Buckingham Palace", "latitude":"51.501564","longitude":"-0.141944"}
   ])
+
+  50.times do
+      Guestlist.create(
+      name: Faker::Name.name_with_middle,
+      email: Faker::Internet.free_email,
+      response: Faker::Coin.flip
+    )
+    #name = Faker::Coffee.blend_name
+    #quantity = rand(0..100)
+    #Guestlist.create(name: name, email: email, response: response)
+
+  end

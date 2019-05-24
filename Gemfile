@@ -7,6 +7,8 @@ ruby '2.3.3'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+gem 'faker', '~> 1.6', '>= 1.6.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -34,7 +36,7 @@ gem 'pickadate-rails'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '= 1.4.1', require: false
 gem 'attach', '~> 1.0.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,3 +67,5 @@ gem 'reports_kit'
 gem "chartkick"
 
 gem 'groupdate'
+
+gem 'roo'
