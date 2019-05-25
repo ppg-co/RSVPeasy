@@ -69,3 +69,7 @@ gem "chartkick"
 gem 'groupdate'
 
 gem 'roo'
+
+gem 'jquery-rails'
+
+gem 'bootstrap-sass'

@@ -1,5 +1,8 @@
 Rails.application.routes.default_url_options[:host] = "XXX"
 Rails.application.routes.draw do
+  root 'themes#index'
+  get 'themes/index'
+  get 'pages/about'
   get 'guestlists_imports/new'
   get 'guestlists_imports/create'
   resources :guestlists do
@@ -10,10 +13,11 @@ end
   #resources :guestlists_imports, only: [:new, :create]
   resources :locations
 
-  get 'pages/about'
+
   #root to: 'events#index'
   root to: redirect('/events')
   root to: redirect('/guestlists')
+  root to: redirect('/pages/about')
   #get 'guestlists'
   resources :events
   devise_for :users
