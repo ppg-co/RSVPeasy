@@ -19,7 +19,9 @@ end
   root to: redirect('/guestlists')
   root to: redirect('/pages/about')
   #get 'guestlists'
-  resources :events
+  resources :events do
+    resources :guests
+  end
   devise_for :users
 
   mount ReportsKit::Engine, at: '/'

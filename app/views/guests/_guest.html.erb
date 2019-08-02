@@ -1,0 +1,9 @@
+
+<p><%= guest.id %></p>
+
+<p>Edit this guest:</p>
+<%= render 'guests/form', guest: guest %>
+
+<p><%= link_to "Remove guest", event_guest_path(@event, guest), method: :delete %></p>
+
+<hr>
