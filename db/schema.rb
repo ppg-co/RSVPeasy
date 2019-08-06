@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_082949) do
+ActiveRecord::Schema.define(version: 2019_08_06_082242) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(version: 2019_08_02_082949) do
   end
 
   create_table "guests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name"
     t.string "email"
     t.string "response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "event_id"
   end
 

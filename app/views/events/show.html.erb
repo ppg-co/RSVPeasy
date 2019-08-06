@@ -48,9 +48,13 @@
   </table>
 
 </div>
+<div >
+  <%= render @event.guests %>
 
-<h2>Add a guest:</h2>
-<%= render 'guests/form', guest: @event.guests.build %>
+  <h2>Add a guest:</h2>
+  <%= render 'guests/form', guest: @event.guests.build %>
+</div>
+
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
