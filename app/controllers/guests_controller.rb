@@ -24,6 +24,7 @@ class GuestsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @guest = @event.guests.create(guest_params)
+    GuestMailer.with(guest: @guest).guest_email.deliver_now
     redirect_to event_path(@event)
   end
 
@@ -64,6 +65,6 @@ class GuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:name, :email, :response)
+      params.require(:guest).permit(:name, :email, :response, :event_id)
     end
 end
