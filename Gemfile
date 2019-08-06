@@ -68,7 +68,7 @@ gem "chartkick"
 
 gem 'groupdate'
 
-gem 'roo'
+gem "roo", "~> 2.7.0"
 
 gem 'jquery-rails'
 

@@ -20,7 +20,7 @@ end
   root to: redirect('/pages/about')
   #get 'guestlists'
   resources :events do
-    resources :guests
+    resources :guestlists
   end
   devise_for :users
 
