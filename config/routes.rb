@@ -21,6 +21,7 @@ end
   #get 'guestlists'
   resources :events do
     resources :guests
+    match '/landing_page', to:'events#landing_page', as: :landing_page, :via =>[:get, :post]
     # resources :guestlists
   end
   devise_for :users

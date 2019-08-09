@@ -9,7 +9,8 @@
 
 <div class="events show">
   <h2><%=@event.name%></h2>
-
+<br>
+<br>
   <table summary="Event view">
     <tr>
 
@@ -21,7 +22,7 @@
 
     <tr>
       <th>Date of Event</th>
-      <td><%= @event.date_of_event.strftime("%-d/%-m/%y %H:%M %Z") %></td>
+      <td><%= @event.date_of_event.strftime("%-d/%-m/%y %H:%M") %></td>
     </tr>
     <tr>
       <th>Description</th>
@@ -35,24 +36,28 @@
 
     <tr>
       <th>Response Cut-Off</th>
-      <td><%= @event.rsvp_cut_off.strftime("%-d/%-m/%y %H:%M %Z") %></td>
+      <td><%= @event.rsvp_cut_off.strftime("%-d/%-m/%y %H:%M") %></td>
     </tr>
     <tr>
       <th>Created</th>
-      <td><%= @event.created_at.strftime("%-d/%-m/%y %H:%M %Z") %></td>
+      <td><%= @event.created_at.strftime("%-d/%-m/%y %H:%M") %></td>
     </tr>
     <tr>
       <th>Updated</th>
-      <td><%= @event.updated_at.strftime("%-d/%-m/%y %H:%M %Z") %></td>
+      <td><%= @event.updated_at.strftime("%-d/%-m/%y %H:%M") %></td>
     </tr>
   </table>
 
 </div>
+<<<<<<< Updated upstream
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+=======
+<br>
+<br>
+>>>>>>> Stashed changes
 <div >
-   <%= render @event.guests %>
 
-  <h2>Add a guest:</h2>
+  <h3>Add a guest:</h3>
   <%= render 'guests/form', guest: @event.guests.build %>
 </div>

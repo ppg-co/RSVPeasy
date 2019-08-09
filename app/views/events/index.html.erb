@@ -16,11 +16,11 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-        <td><%= event.date_of_event.strftime("%-d/%-m/%y %H:%M %Z") %></td>
+        <td><%= event.date_of_event.strftime("%-d/%-m/%y %H:%M") %></td>
         <td><%= truncate(event.description, :length => 35) %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure you want to delete this event' } %></td>
+        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure you want to delete this event' } %></td>
       </tr>
     <% end %>
   </tbody>

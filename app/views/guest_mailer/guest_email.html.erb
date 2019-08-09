@@ -11,6 +11,8 @@
     <%= yield %>
     <p>Dear <%= @guest.name %></p>
     <p>You have been invited to: <%= @event.name %></p>
-    <p></p>
+    <p>RSVP Here: <%= event_landing_page_url(@event)  %></p>
+    <p>Use this ID to RSVP: <%= @guest.id %></p>
+
   </body>
 </html>

@@ -13,6 +13,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def landing_page
+    @event = Event.find(params[:event_id])
+  end
   # GET /events/new
   def new
     @event = Event.new
@@ -74,7 +77,6 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:name,:date_of_event,:location,:address, :latitude, :longitude, :description,:rsvp_cut_off, :cover_photo,
-      :guestlist_attributes => [:name, :email]
-    )
+      :guestlist_attributes => [:name, :email])
     end
 end

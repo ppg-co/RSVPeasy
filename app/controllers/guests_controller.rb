@@ -11,6 +11,10 @@ class GuestsController < ApplicationController
   # GET /guests/1
   # GET /guests/1.json
   def show
+    if params[:search]
+      @search_term = params[:search]
+      @guest = @event.guests.search_by(@search_term)
+    end
   end
 
   # GET /guests/ne
@@ -24,8 +28,13 @@ class GuestsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @guest = @event.guests.create(guest_params)
+    respond_to do |format|
+      if @guest.save
+        format.html { redirect_to @event, notice: 'Guest was successfully added.' }
+      end
+    end
     GuestMailer.with(guest: @guest, event: @event).guest_email.deliver_now
-    redirect_to event_path(@event)
+
   end
 
   # PATCH/PUT /guests/1

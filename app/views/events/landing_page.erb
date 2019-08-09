@@ -1,0 +1,40 @@
+<div class="events show">
+
+  <table summary="Event view">
+    <h1><%=@event.name%></h1>
+    <tr>
+      <td><% if @event.cover_photo.attached? %>
+        <image src="<%=(url_for(@event.cover_photo)) %>">
+          <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <th>Date of Event</th>
+      <td><%= @event.date_of_event.strftime("%-d/%-m/%y %H:%M %Z") %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @event.description %></td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td><%= @event.location %></td>
+    </tr>
+
+
+    <tr>
+      <th>Respond by:</th>
+      <td><%= @event.rsvp_cut_off.strftime("%-d/%-m/%y %H:%M %Z") %></td>
+    </tr>
+  </table>
+</div>
+<br>
+<br>
+<br>
+<div>
+  <h3>Enter your ID here:</h3>
+  <%= form_for "", url: event_guests_path, role: 'search', method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search.." %>
+  <% end %>
+</div>
