@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Events</h1>
 
 <table class="table table-hover">
@@ -27,5 +25,7 @@
 </table>
 
 <br>
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
+
+<h1>Number of events created</h1>
 <%= line_chart Event.group_by_day(:created_at).count %>

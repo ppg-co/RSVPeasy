@@ -16,7 +16,7 @@ p, ol, ul, td {
 pre {
   background-color: #eee;
   padding: 10px;
-  font-size: 11px;
+  font-size: 15px;
 }
 
 a {
@@ -44,7 +44,9 @@ td {
 
 div {
   &.field, &.actions {
+    font-family: verdana, arial, helvetica, sans-serif;
     margin-bottom: 10px;
+    font-size: 15px;
   }
 }
 
@@ -69,14 +71,14 @@ div {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    font-size: 15px;
     margin: -7px -7px 0;
     background-color: #c00;
     color: #fff;
   }
 
   ul li {
-    font-size: 12px;
+    font-size: 15px;
     list-style: square;
   }
 }
