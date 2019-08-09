@@ -24,7 +24,7 @@ class GuestsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @guest = @event.guests.create(guest_params)
-    GuestMailer.with(guest: @guest).guest_email.deliver_now
+    GuestMailer.with(guest: @guest, event: @event).guest_email.deliver_now
     redirect_to event_path(@event)
   end
 

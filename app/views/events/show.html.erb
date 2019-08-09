@@ -49,10 +49,10 @@
 
 </div>
 <div >
-  <%= render @event.guestlists %>
+   <%= render @event.guests %>
 
   <h2>Add a guest:</h2>
-  <%= render 'guestlists/form', guestlist: @event.guestlists.build %>
+  <%= render 'guests/form', guest: @event.guests.build %>
 </div>
 
 

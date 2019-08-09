@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @event.build_guestlist
+    # @event.build_guestlist
 
   end
 

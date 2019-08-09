@@ -9,7 +9,7 @@ class GuestMailer < ApplicationMailer
   end
 
   def guest_email()
-    # @event = Event.find(params[:event_id])
+    @event = params[:event]
     @guest = params[:guest]
     mail(to: @guest.email)
   end
