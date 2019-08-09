@@ -1,5 +1,12 @@
 Rails.application.routes.default_url_options[:host] = "XXX"
 Rails.application.routes.draw do
+  resources :todo_lists do
+   resources :todo_items do
+    member do
+     patch :complete
+    end
+  end
+end
   root 'themes#index'
   get 'themes/index'
   get 'pages/about'
@@ -18,6 +25,7 @@ end
   root to: redirect('/events')
   root to: redirect('/guestlists')
   root to: redirect('/pages/about')
+  root to: redirect('/todo_lists')
   #get 'guestlists'
   resources :events do
     resources :guests

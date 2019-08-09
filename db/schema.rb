@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_082242) do
+ActiveRecord::Schema.define(version: 2019_08_09_215458) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,22 @@ ActiveRecord::Schema.define(version: 2019_08_06_082242) do
     t.string "name"
     t.decimal "latitude"
     t.decimal "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "todo_items", force: :cascade do |t|
+    t.string "content"
+    t.integer "todo_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "completed_at"
+    t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
+  end
+
+  create_table "todo_lists", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
