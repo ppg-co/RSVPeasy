@@ -27,5 +27,7 @@
     <i class="fa fa-trash"></i>
    <% end %>
   </div>
+  <h1>Number of Tasks created</h1>
+  <%= line_chart TodoItem.group_by_day(:created_at).count %>
  <% end %>
 </div>

@@ -34,15 +34,20 @@ a {
 
 th {
   padding-bottom: 5px;
+  font-size: 12px;
+  font-family: verdana, arial, helvetica, sans-serif;
 }
 
 td {
   padding: 0 5px 7px;
+  font-size: 12px;
+  font-family: verdana, arial, helvetica, sans-serif;
 }
 
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+    font-size: 12px;
   }
 }
 
@@ -76,9 +81,21 @@ div {
   ul li {
     font-size: 12px;
     list-style: square;
+    color: #FFF;
   }
 }
 
 label {
   display: block;
+}
+
+.navbar {
+    background-color: #154360 !important;
+    border-color: #252525 !important;
+}
+
+ul.navbar-nav li{
+  a{
+    color: #FFF;
+  }
 }
