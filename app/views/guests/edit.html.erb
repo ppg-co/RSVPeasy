@@ -1,6 +1,13 @@
-<h1>Editing Guest</h1>
-
-<%= render 'form', guest: @guest %>
-
-<%= link_to 'Show', @guest %> |
-<%= link_to 'Back', guests_path %>
+<div class="Guest Show">
+<h2> <%=@guest.name%> </h2>
+  <table summary="Guest View">
+      <tr>
+        <th>Email:</th>
+        <td> <%= @guest.email %> </td>
+      </tr>
+  </table>
+   <%= form_for [@event, @guest] do |f| %>
+       <%= f.select :response, [['Yes','yes'],['No','no'],['Maybe','maybe']] %>
+       <%= f.submit 'Respond'  %>
+     <% end %>
+</div>

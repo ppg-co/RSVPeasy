@@ -34,12 +34,13 @@ class GuestsController < ApplicationController
       end
     end
     GuestMailer.with(guest: @guest, event: @event).guest_email.deliver_now
-
   end
 
   # PATCH/PUT /guests/1
   # PATCH/PUT /guests/1.json
   def update
+    @event = Event.find(params[:event_id])
+    @guest = @event.guests.create(guest_params)
     respond_to do |format|
       if @guest.update(guest_params)
         format.html { redirect_to @event, notice: 'Guest was successfully updated.' }
@@ -63,9 +64,9 @@ class GuestsController < ApplicationController
 
   private
 
-  def set_event
-    @event = Event.find(params[:event_id])
-  end
+   def set_event
+     @event = Event.find(params[:event_id])
+   end
     # Use callbacks to share common setup or constraints between actions.
     def set_guest
       @guest = @event.guests.find(params[:id])
