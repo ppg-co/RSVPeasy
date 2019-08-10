@@ -5,6 +5,8 @@
  <div id="form">
   <%= render "todo_items/form" %>
  </div>
+ <h1>Number of Tasks created</h1>
+ <%= line_chart TodoItem.group_by_day(:created_at).count %>
 </div>
 <div class="links">
  <%= link_to 'Edit', edit_todo_list_path(@todo_list), {:style=>'color:#000000;', :class => "h2"} %> |
