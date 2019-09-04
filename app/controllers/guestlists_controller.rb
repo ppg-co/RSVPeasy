@@ -33,7 +33,7 @@ def import
   # GuestMailer.with(guestlist: @guestlist).guestlist_email.deliver_now
   redirect_to guestlists_url, notice: "Guestlists imported."
 
-  GuestMailer.guestlist_email(1)
+  GuestMailer.guestlist_email(@guestlist)
 end
 
   # GET /guestlists/1

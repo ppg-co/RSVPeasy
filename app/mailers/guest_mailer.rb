@@ -1,11 +1,9 @@
 class GuestMailer < ApplicationMailer
 
   def guestlist_email()
-     @guestlist = guestlist
-        guestlist.each do |r|
-          guestlist.guestlist_email.deliver_now
-          # mail(to: r.email)
-        end
+     # @guestlist = params[:guestlist]
+     # # emails = @guestlist.map(|guestlist| guestlist.email)
+     #    mail(to: emails )
   end
 
   def guest_email()

@@ -73,3 +73,5 @@ gem "roo", "~> 2.7.0"
 gem 'jquery-rails'
 
 gem 'bootstrap-sass'
+
+gem 'roo-xls', '~> 1.2'

@@ -21,6 +21,10 @@ class GuestsController < ApplicationController
 
   # GET /guests/1/edit
   def edit
+    if params[:search]
+      @search_term = params[:search]
+      @guest = @event.guests.search_by(@search_term)
+    end
   end
 
   # POST /guests
@@ -43,7 +47,7 @@ class GuestsController < ApplicationController
     @guest = @event.guests.create(guest_params)
     respond_to do |format|
       if @guest.update(guest_params)
-        format.html { redirect_to @event, notice: 'Guest was successfully updated.' }
+        format.html { redirect_to event_landing_page_path(@event), notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guest }
       else
         format.html { render :edit }
