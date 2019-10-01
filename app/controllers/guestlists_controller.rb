@@ -85,7 +85,7 @@ end
   def destroy
     @guestlist.destroy
     respond_to do |format|
-      format.html { redirect_to guestlists_url, notice: 'Guestlist was successfully destroyed.' }
+      format.html { redirect_to guestlists_url, notice: 'Guestlist was successfully deleted.' }
       format.json { head :no_content }
     end
   end

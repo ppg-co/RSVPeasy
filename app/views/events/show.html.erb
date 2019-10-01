@@ -53,8 +53,14 @@
 <%= link_to 'Back', events_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
 <br>
 <br>
-<div >
+<div>
+
+<% render @event.guestlists %>
 
   <h2>Add a guest:</h2>
-  <%= render 'guests/form', guest: @event.guests.build %>
+  <%= render 'guestlists/form', guestlist: @event.guestlists.build %>
+
+<br>
+<br>
+  <%= link_to 'Guestlist', guestlists_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
 </div>

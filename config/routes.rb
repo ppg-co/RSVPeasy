@@ -1,6 +1,5 @@
 Rails.application.routes.default_url_options[:host] = "XXX"
 Rails.application.routes.draw do
-
   resources :todo_lists do
  resources :todo_items do
   member do
@@ -29,10 +28,11 @@ resources :guests
   #get 'guestlists'
   resources :events do
     resources :guests
+    resources :guestlists
     match '/landing_page', to:'events#landing_page', as: :landing_page, :via => [:get,:post]
   end
-  devise_for :users
 
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   mount ReportsKit::Engine, at: '/'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

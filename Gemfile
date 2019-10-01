@@ -75,3 +75,9 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 
 gem 'roo-xls', '~> 1.2'
+
+gem 'omniauth-google-oauth2', '~> 0.4.1'
+
+gem 'omniauth', '~> 1.9'
+
+gem 'httpclient', '~> 2.8', '>= 2.8.3'
