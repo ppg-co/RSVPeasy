@@ -71,11 +71,9 @@ class GuestsController < ApplicationController
   def destroy
     @guest.destroy
     respond_to do |format|
-<<<<<<< Updated upstream
-      format.html { redirect_to @event, notice: 'Guest was successfully deleted.' }
-=======
+
       format.html { redirect_to @event, notice: 'Guest has been removed.' }
->>>>>>> Stashed changes
+
       format.json { head :no_content }
     end
   end

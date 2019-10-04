@@ -1,17 +1,6 @@
-<h1>Editing Guestlist</h1>
+<h1>Editing Guest</h1>
 
 <%= render 'form', guestlist: @guestlist %>
 
-<<<<<<< Updated upstream
-<%= link_to 'Show', @guestlist, {:style=>'color:#WWWWWW;', :class => "btnC"} %> |
-<%= link_to 'Back', guestlists_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
-=======
-<%= form_for @guestlist do |f| %>
-    <%= f.select :response, [['No Response', 'No Response'],['I will be there!','Yes'],['Eish! I can not make it','No'],['I am not so sure yet','Maybe']] %>
-    <%= f.select :dietary_requirements, [['I Eat Everything!', 'No Requirements'],['Vegetarian','Vegetarian'],['Vegan','Vegan'],['Halaal','Halaal'],['Kosher','Kosher']] %>
-    <%= f.submit 'Respond'  %>
-  <% end %>
-
-<%= link_to 'Show', @guestlist, {:style=>'color:#WWWWWW;', :class => "h2"} %> |
-<%= link_to 'Back', guestlists_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
->>>>>>> Stashed changes
+<br><br>
+  <%= link_to 'Back', guestlists_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>

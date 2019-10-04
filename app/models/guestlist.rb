@@ -30,5 +30,5 @@ def self.open_spreadsheet(file)
   end
 end
 
-validates :name, :email, presence: true
+validates :firstname, :lastname, :email, presence: true
 end

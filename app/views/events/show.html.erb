@@ -21,8 +21,8 @@
     </tr>
 
     <tr class="table-active">
-      <th>Date of Event</th>
-      <td><%= @event.date_of_event.strftime("%-d/%-m/%y %H:%M") %></td>
+      <th>Time of Date of Event</th>
+      <td><%= @event.date_of_event.strftime("%H:%M on the %-d/%-m/%y") %></td>
     </tr>
     <tr class="table-active">
       <th>Description</th>
@@ -56,7 +56,7 @@
 <br>
 
 <div>
-  <%= link_to 'Edit', edit_event_path(@event), {:style=>'color:#WWWWWW;', :class => "btnC"} %>    
+  <%= link_to 'Edit', edit_event_path(@event), {:style=>'color:#WWWWWW;', :class => "btnC"} %>
   <%= link_to 'Back', events_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
   <br>
 

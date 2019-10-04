@@ -1,4 +1,4 @@
-<%= form_with(model: [@event, guestlist], local: true) do |form| %>
+<%= form_with(model: [ guestlist], local: true) do |form| %>
   <% if guestlist.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(guestlist.errors.count, "error") %> prohibited this guestlist from being saved:</h2>
@@ -21,25 +21,29 @@
     <%= form.text_field :lastname %>
   </div>
 
-<<<<<<< Updated upstream
-  <!-- <div class="field">
-    <%= form.label :response %>
-    <%= form.text_field :response %>
-  </div> -->
-=======
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
->>>>>>> Stashed changes
 
+  <div class="field">
+      <%= form.label :response %> <br>
+      <%= form.select :response, [['No Response', 'No Response'],['I will be there!','Yes'],['Eish! I can not make it','No'],['I am not so sure yet','Maybe']] %>
+  </div>
+
+  <div class="field">
+      <%= form.label :dietary_requirements %> <br>
+      <%= form.select :dietary_requirements, [['I Eat Everything!', 'No Requirements'],['Vegetarian','Vegetarian'],['Vegan','Vegan'],['Halaal','Halaal'],['Kosher','Kosher']] %>
+  </div>
 
   <!-- <div class="field">
     <%= form.label :event_id %>
     <%= form.text_field :event_id %>
   </div> -->
 
+<br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save Guest"%>
   </div>
 <% end %>

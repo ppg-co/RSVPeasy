@@ -16,7 +16,7 @@
     <% end %>
     <% @guestslists.each do |guestlist| %>
       <tr>
-        <td> <%=guestlist.name %></td>
+        <td> <%=guestlist.firstname %></td>
         <td> <%=guestlist.response %></td>
 
       </tr>

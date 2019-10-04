@@ -26,7 +26,6 @@
         <td><%= guestlist.email %></td>
         <td><%= guestlist.response %></td>
         <td><%= guestlist.dietary_requirements %></td>
-        <td><%= link_to 'Show', guestlist %></td>
         <td><%= link_to 'Edit', edit_guestlist_path(guestlist) %></td>
         <td><%= link_to 'Delete', guestlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -36,15 +35,15 @@
 
 <br>
 
-<<<<<<< Updated upstream
-<%= link_to 'New Guestlist', new_guestlist_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
-=======
-<%= link_to 'Add Another Guest', new_guestlist_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
->>>>>>> Stashed changes
+
+<%= link_to 'Add Another Guest', new_guestlist_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
+
 <br>
 
 <h1>Number of responses by guests</h1>
 <%= pie_chart Guestlist.group(:response).count %>
+<h1>Dietary Requirements</h1>
+<%= pie_chart Guestlist.group(:dietary_requirements).count %>
 
 <h2>Import Guestlist</h2>
 <%= form_tag import_guestlists_path, multipart: true do %>
