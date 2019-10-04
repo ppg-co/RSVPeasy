@@ -9,9 +9,11 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Name</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
       <th scope="col">Email</th>
       <th scope="col">Response</th>
+      <th scope="col">Dietary Requirements</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +21,11 @@
   <tbody>
     <% @guestlists.each do |guestlist| %>
       <tr>
-        <td><%= guestlist.name %></td>
+        <td><%= guestlist.firstname %></td>
+        <td><%= guestlist.lastname %></td>
         <td><%= guestlist.email %></td>
         <td><%= guestlist.response %></td>
+        <td><%= guestlist.dietary_requirements %></td>
         <td><%= link_to 'Show', guestlist %></td>
         <td><%= link_to 'Edit', edit_guestlist_path(guestlist) %></td>
         <td><%= link_to 'Delete', guestlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,7 +36,11 @@
 
 <br>
 
+<<<<<<< Updated upstream
 <%= link_to 'New Guestlist', new_guestlist_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
+=======
+<%= link_to 'Add Another Guest', new_guestlist_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
+>>>>>>> Stashed changes
 <br>
 
 <h1>Number of responses by guests</h1>

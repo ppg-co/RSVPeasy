@@ -14,14 +14,13 @@
     <%= form_for "", url: event_guests_path, role: 'search', method: :get do %>
     <%= text_field_tag :search, @search_term, placeholder: "Enter ID here:" %>
     <% end %>
-    <% @guests.each do |guest| %>
+    <% @guestslists.each do |guestlist| %>
       <tr>
-        <td> <%=guest.name %></td>
-        <td> <%=guest.response %></td>
+        <td> <%=guestlist.name %></td>
+        <td> <%=guestlist.response %></td>
 
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>

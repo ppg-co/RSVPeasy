@@ -1,27 +1,36 @@
 class GuestsController < ApplicationController
-    before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :set_event
     before_action :set_guest, only: [:show, :edit, :update, :destroy]
 
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all
+    @guests = @event.guests
+    if params[:search]
+      @search_term = params[:search]
+      @guests = @event.guests.search_by(@search_term)
+      # @guest = @event.guests.find(params[:search])
+    end
+    if params[:search] && @guests.count == 1
+        @guest = @event.guests.find(params[:search])
+    redirect_to edit_event_guest_path(@event, @guest)
   end
+  end
+  # if params[:event_id]
+  #   @guests = Event.find(params[:event_id])
+  # end
 
   # GET /guests/1
   # GET /guests/1.json
   def show
-    if params[:search]
-      @search_term = params[:search]
-      @guest = @event.guests.search_by(@search_term)
-    end
+    @guest = @event.guests.find(params[:id])
   end
 
   # GET /guests/ne
 
   # GET /guests/1/edit
   def edit
-    if params[:search]
+    if params[:search].present?
       @search_term = params[:search]
       @guest = @event.guests.search_by(@search_term)
     end
@@ -30,14 +39,15 @@ class GuestsController < ApplicationController
   # POST /guests
   # POST /guests.json
   def create
-    @event = Event.find(params[:event_id])
+    # @event = Event.find(params[:event_id])
     @guest = @event.guests.create(guest_params)
     respond_to do |format|
       if @guest.save
         format.html { redirect_to @event, notice: 'Guest was successfully added.' }
+        GuestMailer.with(guest: @guest, event: @event).guest_email.deliver_now
       end
     end
-    GuestMailer.with(guest: @guest, event: @event).guest_email.deliver_now
+
   end
 
   # PATCH/PUT /guests/1
@@ -61,7 +71,11 @@ class GuestsController < ApplicationController
   def destroy
     @guest.destroy
     respond_to do |format|
+<<<<<<< Updated upstream
       format.html { redirect_to @event, notice: 'Guest was successfully deleted.' }
+=======
+      format.html { redirect_to @event, notice: 'Guest has been removed.' }
+>>>>>>> Stashed changes
       format.json { head :no_content }
     end
   end

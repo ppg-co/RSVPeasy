@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Name:</strong>
-  <%= @guestlist.name %>
+  <%= @guestlist.firstname %>
 </p>
-
+<p>
+  <strong>Name:</strong>
+  <%= @guestlist.lastname %>
+</p>
 <p>
   <strong>Email:</strong>
   <%= @guestlist.email %>
@@ -13,6 +16,10 @@
 <p>
   <strong>Response:</strong>
   <%= @guestlist.response %>
+</p>
+<p>
+  <strong>Response:</strong>
+  <%= @guestlist.dietary_requirements %>
 </p>
 
 <%= link_to 'Edit', edit_guestlist_path(@guestlist), {:style=>'color:#WWWWWW;', :class => "btnC"} %> |

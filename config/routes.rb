@@ -19,7 +19,7 @@ end
 end
   #resources :guestlists_imports, only: [:new, :create]
   resources :locations
-resources :guests
+
 
   #root to: 'events#index'
   root to: redirect('/events')
@@ -28,7 +28,15 @@ resources :guests
   #get 'guestlists'
   resources :events do
     resources :guests
+<<<<<<< Updated upstream
     resources :guestlists
+=======
+    resources :guestslists do
+      match '/response_page', to:'events#guestslists#response_page', as: :response_page, :via => [:get,:post]
+    end
+
+
+>>>>>>> Stashed changes
     match '/landing_page', to:'events#landing_page', as: :landing_page, :via => [:get,:post]
   end
 

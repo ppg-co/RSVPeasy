@@ -8,16 +8,20 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">id</Data></Cell>
-        <Cell><Data ss:Type="String">name</Data></Cell>
+        <Cell><Data ss:Type="String">firstname</Data></Cell>
+        <Cell><Data ss:Type="String">lastname</Data></Cell>
         <Cell><Data ss:Type="String">email</Data></Cell>
         <Cell><Data ss:Type="String">response</Data></Cell>
+        <Cell><Data ss:Type="String">dietary_requirements</Data></Cell>
       </Row>
     <% @guestlists.each do |guestlist| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= guestlist.id %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= guestlist.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= guestlist.firstname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= guestlist.lastname %></Data></Cell>
         <Cell><Data ss:Type="String"><%= guestlist.email %></Data></Cell>
         <Cell><Data ss:Type="String"><%= guestlist.response %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= guestlist.dietary_requirements %></Data></Cell>
       </Row>
     <% end %>
     </Table>

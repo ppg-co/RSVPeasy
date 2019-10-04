@@ -20,7 +20,8 @@ class GuestlistsController < ApplicationController
   # end
 
   def index
-  @guestlists = Guestlist.order(:name)
+  @guestlists = Guestlist.all
+  @guestlists = Guestlist.order(:firstname)
   respond_to do |format|
     format.html
     format.csv { send_data @guestlists.to_csv }
@@ -31,9 +32,10 @@ end
 def import
   Guestlist.import(params[:file])
   # GuestMailer.with(guestlist: @guestlist).guestlist_email.deliver_now
-  redirect_to guestlists_url, notice: "Guestlists imported."
-
-  GuestMailer.guestlist_email(@guestlist)
+  Guestlist.all.each do |guestlist|
+    GuestMailer.with(guestlist: guestlist).guestlist_email.deliver_now
+  end
+  redirect_to guestlists_url, notice: "Guest-list Successfully Imported."
 end
 
   # GET /guestlists/1
@@ -98,6 +100,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guestlist_params
-      params.require(:guestlist).permit(:name, :email, :response, :event_id)
+      params.require(:guestlist).permit(:firstname, :lastname, :email, :response, :dietary_requirements, :event_id)
     end
 end
