@@ -1,6 +1,6 @@
 class GuestlistsController < ApplicationController
   before_action :set_guestlist, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /guestlists
   # GET /guestlists.json
   # def index
@@ -20,8 +20,7 @@ class GuestlistsController < ApplicationController
   # end
 
   def index
-  @guestlists = Guestlist.all
-  @guestlists = Guestlist.order(:firstname)
+  @guestlists = Guestlist.order(sort_column + " " + sort_direction)
   respond_to do |format|
     format.html
     format.csv { send_data @guestlists.to_csv }
@@ -59,7 +58,7 @@ end
 
     respond_to do |format|
       if @guestlist.save
-        format.html { redirect_to guestlists_url, notice: 'Guestlist was successfully created.' }
+        format.html { redirect_to guestlists_url, notice: 'Guest was successfully created.' }
         format.json { render :show, status: :created, location: @guestlist }
       else
         format.html { render :new }
@@ -73,7 +72,7 @@ end
   def update
     respond_to do |format|
       if @guestlist.update(guestlist_params)
-        format.html { redirect_to guestlists_url, notice: 'Guestlist was successfully updated.' }
+        format.html { redirect_to guestlists_url, notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guestlist }
       else
         format.html { render :edit }
@@ -87,12 +86,19 @@ end
   def destroy
     @guestlist.destroy
     respond_to do |format|
-      format.html { redirect_to guestlists_url, notice: 'Guestlist was successfully deleted.' }
+      format.html { redirect_to guestlists_url, notice: 'Guest was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
   private
+    def sort_column
+      Guestlist.column_names.include?(params[:sort]) ? params[:sort] : "firstname"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_guestlist
       @guestlist = Guestlist.find(params[:id])
