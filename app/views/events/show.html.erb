@@ -11,7 +11,7 @@
   <h2><%=@event.name%></h2>
 <br>
 <br>
-  <table summary="Event view">
+  <table summary="Event view" class="table table-hover">
     <tr>
 
       <td><% if @event.cover_photo.attached? %>
@@ -20,21 +20,21 @@
       </td>
     </tr>
 
-    <tr>
+    <tr class="table-active">
       <th>Date of Event</th>
       <td><%= @event.date_of_event.strftime("%-d/%-m/%y %H:%M") %></td>
     </tr>
-    <tr>
+    <tr class="table-active">
       <th>Description</th>
       <td><%= @event.description %></td>
     </tr>
-    <tr>
+    <tr class="table-active">
       <th>Location</th>
       <td><%= @event.location %></td>
     </tr>
 
 
-    <tr>
+    <tr class="table-active">
       <th>Response Cut-Off</th>
       <td><%= @event.rsvp_cut_off.strftime("%-d/%-m/%y %H:%M") %></td>
     </tr>
@@ -47,13 +47,18 @@
       <td><%= @event.updated_at.strftime("%-d/%-m/%y %H:%M") %></td>
     </tr> -->
   </table>
+<br>
+  <button type="button" class="btn btn-outline-primary" onclick="btn btn-outline-info">Publish</button>
+<br>
 
 </div>
-<%= link_to 'Edit', edit_event_path(@event), {:style=>'color:#WWWWWW;', :class => "h2"} %> |
-<%= link_to 'Back', events_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
 <br>
 <br>
+
 <div>
+  <%= link_to 'Edit', edit_event_path(@event), {:style=>'color:#WWWWWW;', :class => "btnC"} %>    
+  <%= link_to 'Back', events_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
+  <br>
 
 <% render @event.guestlists %>
 
@@ -62,5 +67,5 @@
 
 <br>
 <br>
-  <%= link_to 'Guestlist', guestlists_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
+  <%= link_to 'Guestlist', guestlists_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
 </div>

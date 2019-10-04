@@ -25,7 +25,7 @@
 </table>
 
 <br>
-<%= link_to 'New Event', new_event_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
+<%= link_to 'New Event', new_event_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
 
 <h1>Number of events created</h1>
 <%= line_chart Event.group_by_day(:created_at).count %>
