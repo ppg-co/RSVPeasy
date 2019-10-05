@@ -29,11 +29,11 @@ class GuestlistsController < ApplicationController
 end
 
 def import
-  Guestlist.import(params[:file])
-  # GuestMailer.with(guestlist: @guestlist).guestlist_email.deliver_now
-  Guestlist.all.each do |guestlist|
-    GuestMailer.with(guestlist: guestlist).guestlist_email.deliver_now
+  Guestlist.all.each do |g|
+    #puts g.email
+    GuestMailer.with(guest: g).guestlist_email.deliver_now
   end
+  
   redirect_to guestlists_url, notice: "Guest-list Successfully Imported."
 end
 
