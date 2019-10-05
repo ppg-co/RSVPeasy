@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = (Event.order(sort_column + " " + sort_direction))
   end
 
   # GET /events/1
@@ -74,9 +75,10 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name,:date_of_event,:location,:address, :latitude, :longitude, :description,:rsvp_cut_off, :cover_photo,
+      params.require(:event).permit(:name,:date_of_event,:location,:address, :latitude, :longitude, :description,:rsvp_cut_off, :state, :cover_photo,
       :guestlist_attributes => [:name, :email])
     end
 end

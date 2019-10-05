@@ -1,5 +1,5 @@
 class Guestlist < ApplicationRecord
-  belongs_to :event, optional:
+  belongs_to :event, optional: true
 
   def self.to_csv(options = {})
   CSV.generate(options) do |csv|

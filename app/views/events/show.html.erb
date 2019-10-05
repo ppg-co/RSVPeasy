@@ -47,9 +47,7 @@
       <td><%= @event.updated_at.strftime("%-d/%-m/%y %H:%M") %></td>
     </tr> -->
   </table>
-<br>
-  <button type="button" class="btn btn-outline-primary" onclick="btn btn-outline-info">Publish</button>
-<br>
+
 
 </div>
 <br>
@@ -60,12 +58,8 @@
   <%= link_to 'Back', events_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
   <br>
 
-<% render @event.guestlists %>
-
-  <h2>Add a guest:</h2>
-  <%= render 'guestlists/form', guestlist: @event.guestlists.build %>
 
 <br>
 <br>
-  <%= link_to 'Guestlist', guestlists_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
+  <%= link_to 'Take Me To The Guest-List', event_guestlists_path(@event), {:style=>'color:#WWWWWW;', :class => "btnD"} %>
 </div>
