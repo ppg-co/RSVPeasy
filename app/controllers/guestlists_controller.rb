@@ -1,6 +1,7 @@
 class GuestlistsController < ApplicationController
   before_action :set_guestlist, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
+  Guests_Size = 5
   # GET /guestlists
   # GET /guestlists.json
   # def index
@@ -20,7 +21,9 @@ class GuestlistsController < ApplicationController
   # end
 
   def index
-  @guestlists = Guestlist.order(sort_column + " " + sort_direction)
+  @page = (params[:page] || 0).to_i
+  # @guestlists = (Guestlist.offset(Guests_Size * @page).limit(Guests_Size)) 
+  @guestlists = (Guestlist.order(sort_column + " " + sort_direction))
   respond_to do |format|
     format.html
     format.csv { send_data @guestlists.to_csv }

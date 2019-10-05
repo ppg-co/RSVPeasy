@@ -33,20 +33,29 @@
   </tbody>
 </table>
 
-<br>
+<ul class="pager">
+      <li class="previous <%= @page == 0 ? 'disabled' : '' %>">
+          <%= link_to_if @page > 0, "<< Previous", guestlists_path(page: @page - 1) %>
+      </li>
 
+      <li class="next">
+          <%= link_to "Next >>", guestlists_path(page: @page + 1) %>
+      </li>
+   </ul>
 
 <%= link_to 'Add Another Guest', new_guestlist_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
 
+<br>
+<br>
+<h2>Import Guestlist</h2>
+<%= form_tag import_guestlists_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+<br>
 <br>
 
 <h1>Number of responses by guests</h1>
 <%= pie_chart Guestlist.group(:response).count %>
 <h1>Dietary Requirements</h1>
 <%= pie_chart Guestlist.group(:dietary_requirements).count %>
-
-<h2>Import Guestlist</h2>
-<%= form_tag import_guestlists_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>

@@ -79,3 +79,7 @@ gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'omniauth', '~> 1.9'
 
 gem 'httpclient', '~> 2.8', '>= 2.8.3'
+
+gem 'will_paginate', '~> 3.1.1'
+gem 'will_paginate-bootstrap'
+#this is needed to add bootsrap style to pagination
