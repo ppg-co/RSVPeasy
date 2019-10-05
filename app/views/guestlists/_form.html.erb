@@ -1,8 +1,6 @@
-<%= form_with(model: [ guestlist], local: true) do |form| %>
+<%= form_with(model: [@event, guestlist], local: true) do |form| %>
   <% if guestlist.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(guestlist.errors.count, "error") %> prohibited this guestlist from being saved:</h2>
-
       <ul>
       <% guestlist.errors.full_messages.each do |message| %>
         <li><%= message %></li>

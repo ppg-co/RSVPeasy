@@ -2,8 +2,8 @@
 
 <p>
   Download:
-  <%= link_to "CSV", guestlists_path(format: "csv") %> |
-  <%= link_to "Excel", guestlists_path(format: "xls") %>
+  <%= link_to "CSV", event_guestlists_path(format: "csv") %> |
+  <%= link_to "Excel", event_guestlists_path(format: "xls") %>
 </p>
 
 <table class="table table-hover">
@@ -19,15 +19,15 @@
   </thead>
 
   <tbody>
-    <% @guestlists.each do |guestlist| %>
+    <% @event.guestlists.each do |guestlist| %>
       <tr>
         <td><%= guestlist.firstname %></td>
         <td><%= guestlist.lastname %></td>
         <td><%= guestlist.email %></td>
         <td><%= guestlist.response %></td>
         <td><%= guestlist.dietary_requirements %></td>
-        <td><%= link_to 'Edit', edit_guestlist_path(guestlist) %></td>
-        <td><%= link_to 'Delete', guestlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_event_guestlist_path(@event, guestlist) %></td>
+        <td><%= link_to 'Delete', event_guestlist_path(@event, guestlist), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -43,19 +43,19 @@
       </li>
    </ul>
 
-<%= link_to 'Add Another Guest', new_guestlist_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
+<%= link_to 'Add Another Guest', new_event_guestlist_path(@event), {:style=>'color:#WWWWWW;', :class => "btnC"} %>
 
-<br>
-<br>
-<h2>Import Guestlist</h2>
-<%= form_tag import_guestlists_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-<br>
 <br>
 
 <h1>Number of responses by guests</h1>
-<%= pie_chart Guestlist.group(:response).count %>
+<%= pie_chart @event.guestlists.group(:response).count %>
+<br>
 <h1>Dietary Requirements</h1>
-<%= pie_chart Guestlist.group(:dietary_requirements).count %>
+<%= pie_chart @event.guestlists.group(:dietary_requirements).count %>
+
+<h2>Import Guestlist</h2>
+<%= form_tag import_event_guestlists_path(@event), multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import Guest List" %>
+<% end %>
+<br>

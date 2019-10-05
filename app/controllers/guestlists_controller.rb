@@ -1,7 +1,8 @@
 class GuestlistsController < ApplicationController
+  before_action :set_event
   before_action :set_guestlist, only: [:show, :edit, :update, :destroy]
+
   helper_method :sort_column, :sort_direction
-  Guests_Size = 5
   # GET /guestlists
   # GET /guestlists.json
   # def index
@@ -21,9 +22,8 @@ class GuestlistsController < ApplicationController
   # end
 
   def index
-  @page = (params[:page] || 0).to_i
-  # @guestlists = (Guestlist.offset(Guests_Size * @page).limit(Guests_Size)) 
-  @guestlists = (Guestlist.order(sort_column + " " + sort_direction))
+  @guestlists = @event.guestlists.order(sort_column + " " + sort_direction)
+  # @guestlists=Guestlist.order(sort_column + " " + sort_direction)
   respond_to do |format|
     format.html
     format.csv { send_data @guestlists.to_csv }
@@ -32,12 +32,13 @@ class GuestlistsController < ApplicationController
 end
 
 def import
+  @guestlists = @event.guestlists.import(params[:file])
   Guestlist.import(params[:file])
   # GuestMailer.with(guestlist: @guestlist).guestlist_email.deliver_now
-  Guestlist.all.each do |guestlist|
-    GuestMailer.with(guestlist: guestlist).guestlist_email.deliver_now
-  end
-  redirect_to guestlists_url, notice: "Guest-list Successfully Imported."
+  # Guestlist.all.each do |guestlist|
+  #   GuestMailer.with(guestlist: @guestlist).guestlist_email.deliver_now
+  # end
+  redirect_to event_guestlists_path(@event), notice: "Guest-list Successfully Imported."
 end
 
   # GET /guestlists/1
@@ -57,12 +58,13 @@ end
   # POST /guestlists
   # POST /guestlists.json
   def create
-    @guestlist = Guestlist.new(guestlist_params)
+    @guestlist = @event.guestlists.new(guestlist_params)
 
     respond_to do |format|
       if @guestlist.save
-        format.html { redirect_to guestlists_url, notice: 'Guest was successfully created.' }
+        format.html { redirect_to event_guestlists_url, notice: 'Guest was successfully created.' }
         format.json { render :show, status: :created, location: @guestlist }
+        GuestMailer.with(guestlist: @guestlist, event: @event).guest_email.deliver_now
       else
         format.html { render :new }
         format.json { render json: @guestlist.errors, status: :unprocessable_entity }
@@ -102,10 +104,15 @@ end
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_guestlist
-      @guestlist = Guestlist.find(params[:id])
+      @guestlist = @event.guestlists.find(params[:id])
     end
+
+    def set_event
+      @event = Event.find(params[:event_id])
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guestlist_params

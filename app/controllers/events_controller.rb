@@ -70,21 +70,15 @@ class EventsController < ApplicationController
   end
 
   private
-    def sort_column
-      Event.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name,:date_of_event,:location,:address, :latitude, :longitude, :description,:rsvp_cut_off, :cover_photo,
+      params.require(:event).permit(:name,:date_of_event,:location,:address, :latitude, :longitude, :description,:rsvp_cut_off, :state, :cover_photo,
       :guestlist_attributes => [:name, :email])
     end
 end

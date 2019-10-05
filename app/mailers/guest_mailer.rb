@@ -2,8 +2,8 @@ class GuestMailer < ApplicationMailer
 
   def guest_email()
     @event = params[:event]
-    @guest = params[:guest]
-    mail(to: @guest.email)
+    @guestlist = params[:guestlist]
+    mail(to: @guestlist.email)
   end
 
   def guestlist_email()

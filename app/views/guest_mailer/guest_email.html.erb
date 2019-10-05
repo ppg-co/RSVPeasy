@@ -9,10 +9,9 @@
 
   <body>
     <%= yield %>
-    <p>Dear <%= @guest.name %></p>
+    <p>Dear <%= @guestlist.firstname %></p>
     <p>You have been invited to: <%= @event.name %></p>
-    <p>RSVP Here: <%= event_landing_page_url(@event)  %></p>
-    <p>Use this ID to RSVP: <%= @guest.id %></p>
+    <p>Use this ID to RSVP: <%= @guestlist.id %></p>
 
   </body>
 </html>

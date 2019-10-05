@@ -8,8 +8,6 @@
 <%= form_with(model: event, local: true) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
       <ul>
       <% event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -46,6 +44,11 @@
   <div class="field">
     <%= form.label "Cover Photo" %>
     <%= form.file_field :cover_photo %>
+  </div>
+
+  <div class="field">
+      <%= form.label :state, "Active/Draft" %> <br>
+      <%= form.select :state, [['Draft Event', 'Draft'],['Active','Active']] %>
   </div>
 
   <div class="actions">
