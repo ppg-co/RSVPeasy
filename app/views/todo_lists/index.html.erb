@@ -14,9 +14,9 @@
       <tr>
         <td><%= todo_list.title %></td>
         <td><%= todo_list.description %></td>
-        <td><%= link_to 'Show', todo_list %></td>
-        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
-        <td><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', event_todo_list_path(@event, todo_list) %></td>
+        <td><%= link_to 'Edit', edit_event_todo_list_path(@event, todo_list) %></td>
+        <td><%= link_to 'Delete', event_todo_list_path(@event, todo_list), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Task List', new_todo_list_path, {:style=>'color:#WWWWWW;', :class => "h2"} %>
+<%= link_to 'New Task List', new_event_todo_list_path(@event), {:style=>'color:#WWWWWW;', :class => "h2"} %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_06_083915) do
+ActiveRecord::Schema.define(version: 2019_10_06_091459) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 2019_10_06_083915) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_todo_lists_on_event_id"
   end
 
   create_table "todos", force: :cascade do |t|

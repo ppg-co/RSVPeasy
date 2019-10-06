@@ -36,9 +36,9 @@ def import
   @guestlists = Guestlist.where(event_id: @event.id)
   @guestlists.each do |g|
     #puts g.email
-    GuestMailer.with(current_guest: g, current_event: @event).guestlist_email.deliver_now
+    GuestMailer.with(current_guest: g, current_event: @event).guestlist_email.deliver_later
   end
-  redirect_to event_guestlists_path(@event), notice: "Guest list Successfully Imported."
+  redirect_to event_guestlists_path(@event), notice: "Guest List Has Successfully Been Added! Yay!"
 end
 
   # GET /guestlists/1
@@ -77,7 +77,7 @@ end
   def update
     respond_to do |format|
       if @guestlist.update(guestlist_params)
-        format.html { redirect_to guestlists_url, notice: 'Guest was successfully updated.' }
+        format.html { redirect_to event_guestlists_path(@event§), notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guestlist }
       else
         format.html { render :edit }
@@ -91,7 +91,7 @@ end
   def destroy
     @guestlist.destroy
     respond_to do |format|
-      format.html { redirect_to guestlists_url, notice: 'Guest was successfully deleted.' }
+      format.html { redirect_to event_guestlists_path(@event), notice: 'Guest was successfully deleted.' }
       format.json { head :no_content }
     end
   end

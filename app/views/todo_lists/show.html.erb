@@ -9,7 +9,7 @@
  <%= line_chart TodoItem.group_by_day(:created_at).count %>
 </div>
 <div class="links">
- <%= link_to 'Edit', edit_todo_list_path(@todo_list), {:style=>'color:#000000;', :class => "btnC"} %> |
- <%= link_to 'Delete', todo_list_path(@todo_list), method: :delete, data: { confirm: "Are you sure?"}, :style=>'color:#000000;', :class => "btnC" %> |
- <%= link_to 'Back', todo_lists_path, {:style=>'color:#000000;', :class => "btnC"} %>
+ <%= link_to 'Edit', edit_event_todo_list_path(@event, @todo_list), {:style=>'color:#000000;', :class => "btnC"} %> |
+ <%= link_to 'Delete', event_todo_list_path(@event, @todo_list), method: :delete, data: { confirm: "Are you sure?"}, :style=>'color:#000000;', :class => "btnC" %> |
+ <%= link_to 'Back', event_todo_lists_path(@event), {:style=>'color:#000000;', :class => "btnC"} %>
 </div>

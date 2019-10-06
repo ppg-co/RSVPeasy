@@ -1,9 +1,13 @@
 class Event < ApplicationRecord
   # belongs_to :user
-  has_many :guestlists
-  has_many :guests
-  has_many :todo_lists
+  has_many :guestlists , :dependent => :destroy
   accepts_nested_attributes_for :guestlists
+
+  has_many :todo_lists, :dependent => :destroy
+  has_many :todo_items, :through => :todo_lists
+  accepts_nested_attributes_for :todo_lists
+  accepts_nested_attributes_for :todo_items
+
   has_one_attached :cover_photo
   scope :sorted, lambda {order("created_at DESC")}
 

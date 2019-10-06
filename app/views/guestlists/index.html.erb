@@ -48,6 +48,7 @@
 <h2>Import Guestlist</h2>
 <%= form_tag import_event_guestlists_path(@event), multipart: true do %>
   <%= file_field_tag :file %>
+
   <%= submit_tag "Import Guest List" %>
 <% end %>
 <br>
