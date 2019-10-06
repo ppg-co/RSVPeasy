@@ -15,7 +15,9 @@
     <tr>
 
       <td><% if @event.cover_photo.attached? %>
-        <image src="<%=(url_for(@event.cover_photo)) %>">
+          <img src="<%=(url_for(@event.cover_photo)) %>" border = “0” width = “10px” height=”10px” />
+
+
           <% end %>
       </td>
     </tr>
@@ -54,7 +56,7 @@
 <br>
 
 <div>
-  <%= link_to 'Edit', edit_event_path(@event), {:style=>'color:#WWWWWW;', :class => "btnC"} %>
+  <%= link_to 'Edit', edit_event_path(@event), {:style=>'color:#WWWWWW;', :class => "btnC"} %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <%= link_to 'Back', events_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
   <br>
 

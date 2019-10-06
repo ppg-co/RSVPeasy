@@ -11,7 +11,8 @@ body {
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font: verdana;
+  font-family: sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -37,12 +38,14 @@ a {
 
 th {
   padding-bottom: 5px;
+  font: verdana;
   font-size: 12px;
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
 td {
   padding: 0 5px 7px;
+  font: verdana;
   font-size: 12px;
   font-family: verdana, arial, helvetica, sans-serif;
 }
@@ -64,6 +67,7 @@ input[type="email"], textarea {
  height: 40px;
  border-radius: 4px;
  padding: 1em 2em;
+ font: verdana;
 }
 
 input[type="password"], textarea {
@@ -76,6 +80,7 @@ input[type="password"], textarea {
  height: 40px;
  border-radius: 4px;
  padding: 1em 2em;
+ font: verdana;
 }
 
 #notice {

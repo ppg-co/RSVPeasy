@@ -71,6 +71,13 @@ class EventsController < ApplicationController
   end
 
   private
+  def sort_column
+    Event.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
