@@ -17,11 +17,13 @@
       <td><% if @event.cover_photo.attached? %>
           <img src="<%=(url_for(@event.cover_photo)) %>" border = “0” width = “10px” height=”10px” />
 
-
           <% end %>
       </td>
     </tr>
-
+    <tr class="table-active">
+      <th>Host</th>
+      <td><%= @event.hostname %></td>
+    </tr>
     <tr class="table-active">
       <th>Time of Date of Event</th>
       <td><%= @event.date_of_event.strftime("%H:%M on the %-d/%-m/%y") %></td>

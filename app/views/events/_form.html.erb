@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :hostname %>
+    <%= form.text_field :hostname %>
+  </div>
+
+  <div class="field">
     <%= form.label :date_of_event %>
     <%= form.datetime_select(:date_of_event) %>
   </div>
@@ -48,7 +53,7 @@
 
   <div class="field">
       <%= form.label :state, "Active/Draft" %> <br>
-      <%= form.select :state, [['Draft Event', 'Draft'],['Active','Active']] %>
+      <%= form.select :state, [['Draft Event', 'Draft'],['Active','Active'],['Cancelled','Cancelled']] %>
   </div>
 
   <div class="actions">

@@ -10,7 +10,7 @@
   <body>
     <%= yield %>
     <p>Dear <%= @guestlist.firstname %></p>
-    <p>You have been invited to: <%= @event.name %></p>
+    <p>You have been invited to: <%= @event.name %> by <%= @event.hostname %> </p>
     <p>RSVP here: <%= event_guestlist_response_page_url(@event, @guestlist) %></p>
 
   </body>
