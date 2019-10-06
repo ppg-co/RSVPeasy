@@ -33,11 +33,14 @@ end
 
 
 def import
+  @current_host = "http://" + request.host.to_s + ":" + request.port.to_s
+  
   @event.guestlists.import(params[:file])
   @guestlists = Guestlist.where(event_id: @event.id)
+  
   @guestlists.each do |g|
     #puts g.email
-    GuestMailer.with(current_guest: g, current_event: @event).guestlist_email.deliver_later
+    GuestMailer.with(current_guest: g, current_event: @event, current_host: @current_host).guestlist_email.deliver_later
   end
   redirect_to event_guestlists_path(@event), notice: "Guest List Has Successfully Been Added! Yay!"
 end
