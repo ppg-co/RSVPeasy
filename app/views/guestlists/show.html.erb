@@ -22,5 +22,5 @@
   <%= @guestlist.dietary_requirements %>
 </p>
 
-<%= link_to 'Edit', edit_guestlist_path(@guestlist), {:style=>'color:#WWWWWW;', :class => "btnC"} %> |
-<%= link_to 'Back', guestlists_path, {:style=>'color:#WWWWWW;', :class => "btnC"} %>
+<%= link_to 'Edit', edit_event_guestlist_path(@event, @guestlist), {:style=>'color:#WWWWWW;', :class => "btnC"} %> |
+<%= link_to 'Back', event_guestlists_path(@event), {:style=>'color:#WWWWWW;', :class => "btnC"} %>

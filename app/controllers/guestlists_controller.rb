@@ -31,6 +31,18 @@ class GuestlistsController < ApplicationController
   end
 end
 
+def response_page
+  respond_to do |format|
+    if @guestlist.update(guestlist_params)
+      format.html { redirect_to event_landing_page_path(@event), notice: 'Guest was successfully updated.' }
+      format.json { render :show, status: :ok, location: @guestlist }
+    else
+      format.html { render :edit }
+      format.json { render json: @guestlist.errors, status: :unprocessable_entity }
+    end
+  end
+end
+
 def import
   @event.guestlists.import(params[:file])
   @guestlists = Guestlist.where(event_id: @event.id)

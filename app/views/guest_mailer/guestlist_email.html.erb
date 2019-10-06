@@ -10,8 +10,9 @@
   <body>
     <p>Dear <%= @current_guest.firstname %></p>
     <p>You have been invited to: <%= @current_event.name %></p>
-    <p>RSVP Here: </p>
-    <p>Use this ID to RSVP: </p>
+    <p>RSVP Here: <%= event_guestlist_response_page_url(@event, @guestlist) %> </p>
+
+    <p></p>
 
   </body>
 </html>

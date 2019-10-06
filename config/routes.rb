@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #get 'guestlists'
   resources :events do
     resources :guestlists do
-      # match '/response_page', to:'events#guestlists#response_page', as: :response_page, :via => [:get,:post]
+      match '/response_page', to:'events#guestlist#response_page', as: :response_page, :via => [:get,:post]
       collection do
         post :import
       end

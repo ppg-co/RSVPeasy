@@ -1,4 +1,5 @@
 class TodoItemsController < ApplicationController
+   before_action :set_event
    before_action :set_todo_list
    before_action :set_todo_item, except: [:create]
 
@@ -14,15 +15,20 @@ class TodoItemsController < ApplicationController
    else
     flash[:error] = "To do List item could not be deleted."
    end
-   redirect_to event_todo_list_path(@event)
+   redirect_to event_todo_list_path(@event, @todo_list)
   end
 
   def complete
    @todo_item.update_attribute(:completed_at, Time.now)
-   redirect_to @todo_list, notice: "Todo item completed"
+   redirect_to event_todo_list_path(@event, @todo_list), notice: "Todo item completed"
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
   def set_todo_list
    @todo_list = TodoList.find(params[:todo_list_id])
   end
@@ -32,6 +38,6 @@ class TodoItemsController < ApplicationController
   end
 
   def todo_item_params
-   params[:todo_item].permit(:content, :todo_list_id)
+   params[:todo_item].permit(:content, :todo_list_id, :event_id)
   end
 end
