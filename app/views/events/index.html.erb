@@ -3,9 +3,9 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Date</th>
-      <th scope="col">Active/Draft</th>
+      <th scope="col"><%= sortable  "name" %></th>
+      <th scope="col"><%= sortable  "date_of_event" %></th>
+      <th scope="col"><%= sortable  "state", "Active/Draft" %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

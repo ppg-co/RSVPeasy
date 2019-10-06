@@ -6,7 +6,7 @@ class GuestMailer < ApplicationMailer
   end
 
   def guestlist_email
-      @guest = params[:guest]
-      mail(to: @guest.email, subject: 'Invitation')
+      @guestlist = params[:guestlist]
+      mail(to: @guestlist.email, subject: 'Invitation')
   end
 end
