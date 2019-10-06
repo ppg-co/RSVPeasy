@@ -36,8 +36,7 @@ def import
     #puts g.email
     GuestMailer.with(guest: g).guestlist_email.deliver_now
   end
-  
-  redirect_to guestlists_url, notice: "Guest-list Successfully Imported."
+  redirect_to event_guestlists_path(@event), notice: "Guest-list Successfully Imported."
 end
 
   # GET /guestlists/1

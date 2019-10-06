@@ -33,15 +33,15 @@
   </tbody>
 </table>
 
-<ul class="pager">
+<%# <ul class="pager">
       <li class="previous <%= @page == 0 ? 'disabled' : '' %>">
-          <%= link_to_if @page > 0, "<< Previous", guestlists_path(page: @page - 1) %>
-      </li>
+          <%# <%= link_to_if @page > 0, "<< Previous", guestlists_path(page: @page - 1) %> %>
+      <%# </li> %>
 
-      <li class="next">
-          <%= link_to "Next >>", guestlists_path(page: @page + 1) %>
-      </li>
-   </ul>
+      <%# a<li class="next"> %>
+          <%# <%= link_to "Next >>", guestlists_path(page: @page + 1) %> %>
+      <%# </li> %>
+   <%# </ul> %> %>
 
 <%= link_to 'Add Another Guest', new_event_guestlist_path(@event), {:style=>'color:#WWWWWW;', :class => "btnC"} %>
 

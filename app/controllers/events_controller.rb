@@ -5,7 +5,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = (Event.order(sort_column + " " + sort_direction))
+    # @events = (Event.order(sort_column + " " + sort_direction))
+    @events = Event.all
   end
 
   # GET /events/1
