@@ -11,9 +11,9 @@ class Event < ApplicationRecord
   has_one_attached :cover_photo
   scope :sorted, lambda {order("created_at DESC")}
 
-  validates :name, :location, :date_of_event, :rsvp_cut_off, presence: true
-  validate :event_date_is_valid
-  validate :cut_off_before_event
+   validates :name, :location, :date_of_event, :rsvp_cut_off, presence: true
+   validate :event_date_is_valid
+   validate :cut_off_before_event
 
 #Custom Validations to ensure dates selected do not conflict with eachother
   def event_date_is_valid

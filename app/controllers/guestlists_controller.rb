@@ -89,7 +89,7 @@ end
   def update
     respond_to do |format|
       if @guestlist.update(guestlist_params)
-        format.html { redirect_to event_guestlists_path(@event§), notice: 'Guest was successfully updated.' }
+        format.html { redirect_to event_guestlists_path(@event), notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guestlist }
       else
         format.html { render :edit }

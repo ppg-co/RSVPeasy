@@ -29,6 +29,5 @@ def self.open_spreadsheet(file)
   else raise "Unknown file type: #{file.original_filename}"
   end
 end
-
 validates :firstname, :lastname, :email, presence: true
 end
