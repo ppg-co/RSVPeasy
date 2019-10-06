@@ -53,6 +53,15 @@ def import
   redirect_to event_guestlists_path(@event), notice: "Guest List Has Successfully Been Added! Yay!"
 end
 
+  def response_page
+    @event = Event.find(params[:event_id])
+    @guest = Guestlist.find(params[:id])
+    @response_text = params[:response]
+    @guest.response = @response_text
+    @guest.save
+  end
+  
+  
   # GET /guestlists/1
   # GET /guestlists/1.json
   def show
