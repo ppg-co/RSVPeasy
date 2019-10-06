@@ -11,7 +11,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
-    
+
   end
 
   # GET /todo_lists/new
@@ -30,7 +30,7 @@ class TodoListsController < ApplicationController
 
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to event_todo_lists_path(@event), notice: 'Todo list was successfully created.' }
+        format.html { redirect_to event_todo_lists_path(@event), notice: 'To do list was successfully created.' }
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class TodoListsController < ApplicationController
   def update
     respond_to do |format|
       if @todo_list.update(todo_list_params)
-        format.html { redirect_to @todo_list, notice: 'Todo list was successfully updated.' }
+        format.html { redirect_to @todo_list, notice: 'To do list was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo_list }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class TodoListsController < ApplicationController
   def destroy
     @todo_list.destroy
     respond_to do |format|
-      format.html { redirect_to event_todo_lists_path(@event), notice: 'Todo list was successfully deleted.' }
+      format.html { redirect_to event_todo_lists_path(@event), notice: 'To do list was successfully deleted.' }
       format.json { head :no_content }
     end
   end

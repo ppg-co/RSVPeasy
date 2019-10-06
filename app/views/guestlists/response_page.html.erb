@@ -11,13 +11,23 @@
 
   <tbody>
     <h3>Thank you for your response</h3>
-    
+
     <p> Event Name: <%= @event.name %> </p>
-    
-    <p> Event Description: <%= @event.description %> </p> 
-    
+
+    <p> Event Description: <%= @event.description %> </p>
+
     <p> You have responded: <%= @response_text %> </p>
- 
+
+    <div class="field">
+        <%= form.label :response %> <br>
+        <%= form.select :response, [['No Response', 'No Response'],['I will be there!','Yes'],['Eish! I can not make it','No'],['I am not so sure yet','Maybe']] %>
+    </div>
+
+    <div class="field">
+        <%= form.label :dietary_requirements %> <br>
+        <%= form.select :dietary_requirements, [['I Eat Everything!', 'No Requirements'],['Vegetarian','Vegetarian'],['Vegan','Vegan'],['Halaal','Halaal'],['Kosher','Kosher']] %>
+    </div>
+
   </tbody>
 </table>
 <br>

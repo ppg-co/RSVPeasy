@@ -14,7 +14,7 @@
       <tr>
         <td><%= todo_list.title %></td>
         <td><%= todo_list.description %></td>
-        <td><%= link_to 'Show', event_todo_list_path(@event, todo_list) %></td>
+        <td><%= link_to 'Show/Add Tasks', event_todo_list_path(@event, todo_list) %></td>
         <td><%= link_to 'Edit', edit_event_todo_list_path(@event, todo_list) %></td>
         <td><%= link_to 'Delete', event_todo_list_path(@event, todo_list), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
