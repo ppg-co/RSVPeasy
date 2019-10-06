@@ -8,8 +8,8 @@
   </head>
 
   <body>
-    <p>Dear <%= @guest.firstname %></p>
-    <p>You have been invited to: </p>
+    <p>Dear <%= @current_guest.firstname %></p>
+    <p>You have been invited to: <%= @current_event.name %></p>
     <p>RSVP Here: </p>
     <p>Use this ID to RSVP: </p>
 

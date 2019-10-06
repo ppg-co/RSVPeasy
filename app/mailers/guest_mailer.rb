@@ -5,8 +5,10 @@ class GuestMailer < ApplicationMailer
     mail(to: @guestlist.email)
   end
 
+  # VB: This is the correct mailer method.   I'm not sure what the one above is for.
   def guestlist_email
-      @guestlist = params[:guestlist]
-      mail(to: @guestlist.email, subject: 'Invitation')
+      @current_guest = params[:current_guest]
+      @current_event = params[:current_event]
+      mail(to: @current_guest.email, subject: 'Invitation')
   end
 end

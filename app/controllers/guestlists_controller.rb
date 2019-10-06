@@ -32,10 +32,11 @@ class GuestlistsController < ApplicationController
 end
 
 def import
-  @guestlists = @event.guestlists.import(params[:file])
-  @guestlists.all.each do |g|
+  @event.guestlists.import(params[:file])
+  @guestlists = Guestlist.where(event_id: @event.id)
+  @guestlists.each do |g|
     #puts g.email
-    GuestMailer.with(guestlist: g).guestlist_email.deliver_now
+    GuestMailer.with(current_guest: g, current_event: @event).guestlist_email.deliver_now
   end
   redirect_to event_guestlists_path(@event), notice: "Guest list Successfully Imported."
 end
