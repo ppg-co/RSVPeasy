@@ -34,10 +34,10 @@ end
 
 def import
   @current_host = "http://" + request.host.to_s + ":" + request.port.to_s
-  
+
   @event.guestlists.import(params[:file])
   @guestlists = Guestlist.where(event_id: @event.id)
-  
+
   @guestlists.each do |g|
     #puts g.email
     GuestMailer.with(current_guest: g, current_event: @event, current_host: @current_host).guestlist_email.deliver_later
@@ -47,10 +47,20 @@ end
 
   def response_page
     @event = Event.find(params[:event_id])
-    @guest = Guestlist.find(params[:id])
+    @guestlist = @event.guestlists.find(params[:id])
     @response_text = params[:response]
-    @guest.response = @response_text
-    @guest.save
+    @guestlist.response = @response_text
+    @guestlist.save
+
+    respond_to do |format|
+      if @guestlist.update(guestlist_params)
+        format.html { redirect_to event_guestlists_path(@event), notice: 'Guest was successfully updated.' }
+        format.json { render :show, status: :ok, location: @guestlist }
+      else
+        format.html { render :edit }
+        format.json { render json: @guestlist.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 
