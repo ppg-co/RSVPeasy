@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'guestlists_imports/new'
   get 'guestlists_imports/create'
-  get '/events/:event_id/guestlists/:id/response_page', to: 'guestlists#response_page'
+  get '/events/:event_id/guestlists/:id/response_page/:response', to: 'guestlists#response_page'
 
   #resources :guestlists_imports, only: [:new, :create]
   resources :locations
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   #get 'guestlists'
   resources :events do
     resources :guestlists do
+      patch :response_page, on: :member
       # match '/response_page', to:'events#guestlist#response_page', as: :response_page, :via => [:get,:post]
       collection do
         post :import

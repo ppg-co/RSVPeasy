@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Confirm your details</h1>
+<h1>Thank you <%= @guestlist.name %> for your response</h1>
 
 <table>
   <thead>
@@ -10,41 +10,12 @@
   </thead>
 
   <tbody>
-    <h3>Thank you for your response</h3>
-    
-    <%= form_with(model: [@event, guestlist], local: true) do |form| %>
-      <% if guestlist.errors.any? %>
-        <div id="error_explanation">
-          <ul>
-          <% guestlist.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
 
-      <div class="field">
-          <%= form.label :response %> <br>
-          <%= form.select :response, [['No Response', 'No Response'],['I will be there!','Yes'],['Eish! I can not make it','No'],['I am not so sure yet','Maybe']] %>
-      </div>
+        <p> Event Name: <%= @event.name %> </p>
 
-      <div class="field">
-          <%= form.label :dietary_requirements %> <br>
-          <%= form.select :dietary_requirements, [['I Eat Everything!', 'No Requirements'],['Vegetarian','Vegetarian'],['Vegan','Vegan'],['Halaal','Halaal'],['Kosher','Kosher']] %>
-      </div>
+        <p> Event Description: <%= @event.description %> </p>
 
-      <!-- <div class="field">
-        <%= form.label :event_id %>
-        <%= form.text_field :event_id %>
-      </div> -->
-
-    <br>
-
-      <div class="actions">
-        <%= form.submit "Save Guest"%>
-      </div>
-    <% end %>
-
+        <p> You have responded: <%= @response_text %> </p>
 
   </tbody>
 </table>

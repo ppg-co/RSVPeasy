@@ -9,12 +9,14 @@
 
   <body>
     <p>Dear <%= @current_guest.firstname %></p>
-    <p>You have been invited to: <%= @current_event.name %></p>
-
-    <p><%= @current_event.description %></p>
+    <p>You have been invited to: <%= @current_event.name %> by <%= @current_event.hostname %></p>
+    <br>
+    <p> The event will take place at <%=@current_event.date_of_event %> at <%= @current_event.location %> </p>
+    <br>
+    <p>A little bit of info about the event: <br> <%= @current_event.description %></p>
     <br/>
-    <p>Will you be attending? </p>
-    <p>Click <a href="<%= @current_host %>/events/<%= @current_event.id %>/guestlists/<%= @current_guest.id %>/response_page/">Yes</a> or <a href="<%= @current_host %>/events/<%= @current_event.id %>/guestlists/<%= @current_guest.id %>/response_page/No">No</a> </p>
+    <p><%= @current_event.hostname%> would love to see you there! Can you make it? </p>
+    <p>Click <a href="<%= @current_host %>/events/<%= @current_event.id %>/guestlists/<%= @current_guest.id %>/response_page/yes">Yes</a> or <a href="<%= @current_host %>/events/<%= @current_event.id %>/guestlists/<%= @current_guest.id %>/response_page/No">No</a> </p>
 
   </body>
 </html>

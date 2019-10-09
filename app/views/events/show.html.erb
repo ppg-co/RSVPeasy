@@ -15,7 +15,7 @@
     <tr>
 
       <td><% if @event.cover_photo.attached? %>
-          <img src="<%=(url_for(@event.cover_photo)) %>" border = “0” width = “10px” height=”10px” />
+          <%= image_tag(url_for(@event.cover_photo), :width => "200", :height => "200") %>
 
           <% end %>
       </td>
@@ -65,6 +65,6 @@
 
 <br>
 <br>
-  <%= link_to 'Take Me To The Guest-List', event_guestlists_path(@event), {:style=>'color:#WWWWWW;', :class => "btnD"} %> <br><br><br>
-  <%= link_to 'Take Me To The Task-List', event_todo_list_path(@event), {:style=>'color:#WWWWWW;', :class => "btnD"} %>
+  <%= link_to 'Take Me To The Guest List', event_guestlists_path(@event), {:style=>'color:#WWWWWW;', :class => "btnD"} %> <br><br><br>
+  <%= link_to 'Take Me To The Task List', event_todo_lists_path(@event), {:style=>'color:#WWWWWW;', :class => "btnD"} %>
 </div>

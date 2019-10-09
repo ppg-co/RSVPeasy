@@ -14,6 +14,6 @@ class GuestMailer < ApplicationMailer
       @current_guest = params[:current_guest]
       @current_event = params[:current_event]
       @current_host = params[:current_host]
-      mail(to: @current_guest.email, subject: 'Invitation')
+      mail(to: @current_guest.email, subject: 'Yay! You have been invited to an event!!')
   end
 end

@@ -33,6 +33,7 @@ end
 
 
 def import
+  begin
   @current_host = "http://" + request.host.to_s + ":" + request.port.to_s
 
   @event.guestlists.import(params[:file])
@@ -42,7 +43,9 @@ def import
     #puts g.email
     GuestMailer.with(current_guest: g, current_event: @event, current_host: @current_host).guestlist_email.deliver_later
   end
-  redirect_to event_guestlists_path(@event), notice: "Guest List Has Successfully Been Added! Yay!"
+  rescue => e
+    redirect_to event_guestlists_path(@event), notice: "Guest List Has Successfully Been Added! Yay!"
+  end
 end
 
   def response_page
@@ -51,16 +54,6 @@ end
     @response_text = params[:response]
     @guestlist.response = @response_text
     @guestlist.save
-
-    respond_to do |format|
-      if @guestlist.update(guestlist_params)
-        format.html { redirect_to event_guestlists_path(@event), notice: 'Guest was successfully updated.' }
-        format.json { render :show, status: :ok, location: @guestlist }
-      else
-        format.html { render :edit }
-        format.json { render json: @guestlist.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
 
@@ -82,12 +75,12 @@ end
   # POST /guestlists.json
   def create
     @guestlist = @event.guestlists.new(guestlist_params)
-
+    @current_host = "http://" + request.host.to_s + ":" + request.port.to_s
     respond_to do |format|
       if @guestlist.save
         format.html { redirect_to event_guestlists_url, notice: 'Guest was successfully created.' }
         format.json { render :show, status: :created, location: @guestlist }
-        GuestMailer.with(guestlist: @guestlist, event: @event).guest_email.deliver_now
+        GuestMailer.with(current_guest: @guestlist, current_event: @event, current_host: @current_host).guestlist_email.deliver_later
       else
         format.html { render :new }
         format.json { render json: @guestlist.errors, status: :unprocessable_entity }
