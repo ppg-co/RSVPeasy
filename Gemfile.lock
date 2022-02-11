@@ -170,7 +170,8 @@ GEM
     pickadate-rails (3.5.6.0)
       railties (>= 3.1.0)
     public_suffix (3.0.3)
-    puma (3.12.1)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -300,7 +301,7 @@ DEPENDENCIES
   omniauth (~> 1.9)
   omniauth-google-oauth2 (~> 0.4.1)
   pickadate-rails
-  puma (~> 3.11)
+  puma (~> 4.3)
   rails (~> 5.2.2, >= 5.2.2.1)
   roo (~> 2.7.0)
   roo-xls (~> 1.2)
